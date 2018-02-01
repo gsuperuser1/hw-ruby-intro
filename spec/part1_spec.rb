@@ -1,7 +1,7 @@
 require 'ruby_intro.rb'
-
 describe 'Ruby intro part 1' do
-
+ 
+  
   describe "#sum" do
     it "should be defined" do
       expect { sum([1,3,4]) }.not_to raise_error
