@@ -109,5 +109,26 @@ end
 # Part 3
 
 class BookInStock
-	
+	attr_accessor :isbn, :price
+	def initialize (isbn,price)
+		if isbn.length == 0 || price <= 0 then
+			raise ArgumentError.new()
+		else
+			@isbn = isbn
+			@price = price
+		end
+	end
+	def price_as_string
+		price_str = @price.to_s
+		decimal_index = price_str.index('.')
+		if decimal_index.nil? then
+			price_str = price_str + ".00"
+		elsif (price_str.length - decimal_index) - 1 >= 2 then
+			price_str=price_str[0..decimal_index+2]
+		else
+			price_str = price_str + "0"
+		end
+		price_str = "$" + price_str
+	end
+
 end
